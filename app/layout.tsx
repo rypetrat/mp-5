@@ -2,7 +2,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Geist } from "next/font/google";
-import type { Metadata } from "next";
 import Header from "@/components/Header";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
