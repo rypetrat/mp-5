@@ -23,7 +23,7 @@ export async function POST(req: NextRequest) {
     }
 
     const client = await clientPromise;
-    const db = client.db(); 
+    const db = client.db('URL-Shortener-Db'); 
     const collection = db.collection('URL-Shortener-Collection');
 
     const existing = await collection.findOne({ alias });
