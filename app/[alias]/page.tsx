@@ -13,12 +13,10 @@ export default async function AliasPage({ params }: { params: Promise<Params> })
     const client = await clientPromise;
     const db = client.db();
     const collection = db.collection('URL-Shortener-Collection');
-
     urlEntry = await collection.findOne({ alias });
   } catch (error) {
     console.error('Error fetching URL:', error);
   }
-
   if (urlEntry && urlEntry.originalUrl) {
     redirect(urlEntry.originalUrl);
   } else {
