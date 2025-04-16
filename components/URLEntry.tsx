@@ -1,6 +1,14 @@
 "use client";
 import React, { useState } from 'react';
 import { TextField, Button, Typography, Box } from '@mui/material';
+import styled from 'styled-components';
+
+const StyledDiv = styled.div`
+  background-color: #afac9d;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+`;
 
 export default function UrlEntry() {
   const [originalUrl, setOriginalUrl] = useState('');
@@ -53,26 +61,30 @@ export default function UrlEntry() {
   };
 
   return (
-    <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
-      <TextField label="Original URL" fullWidth required value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} helperText="Example: http(s)://example.com/very/long/url" />
-      <TextField label="URL Alias" fullWidth required value={alias} onChange={(e) => setAlias(e.target.value)} helperText="Enter a custom alias for your URL" />
+    <>
       
-      <Button type="submit" variant="contained" fullWidth sx={{mt: 4, backgroundColor: '#afac9d','&:hover': {backgroundColor: '#005bb5' }}}>
-        Generate Shortened URL
-      </Button>
+      <Box component="form" onSubmit={handleSubmit} sx={{ mt: 2 }}>
+        <StyledDiv>
+          <TextField label="Original URL" fullWidth required value={originalUrl} onChange={(e) => setOriginalUrl(e.target.value)} helperText="Example: http(s)://example.com/very/long/url" />
+          <TextField label="URL Alias" fullWidth required value={alias} onChange={(e) => setAlias(e.target.value)} helperText="Enter a custom alias for your URL" />
+        </StyledDiv>
+        <Button type="submit" variant="contained" fullWidth sx={{mt: 4, backgroundColor: '#afac9d','&:hover': {backgroundColor: '#005bb5' }}}>
+          Generate Shortened URL
+        </Button>
 
-      {error && (
-        <Typography color="error" sx={{ mt: 2 }}>
-          {error}
-        </Typography>
-      )}
+        {error && (
+          <Typography color="error" sx={{ mt: 2 }}>
+            {error}
+          </Typography>
+        )}
 
-      {shortUrl && (
-        <Box sx={{ mt: 4 }}>
-          <Typography variant="h6">Shortened URL:</Typography>
-          <TextField value={shortUrl} fullWidth />
-        </Box>
-      )}
-    </Box>
+        {shortUrl && (
+          <Box sx={{ mt: 4 }}>
+            <Typography variant="h6">Shortened URL:</Typography>
+            <TextField value={shortUrl} fullWidth />
+          </Box>
+        )}
+      </Box>
+    </>
   );
 }
