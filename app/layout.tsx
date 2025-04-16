@@ -7,7 +7,7 @@ import Header from "@/components/Header";
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
 
 const StyledBody = styled.body`
-  background-color:rgb(231, 230, 230);
+  background-color:rgb(168, 168, 168);
 `;
 
 export default function RootLayout({children}: Readonly<{children:React.ReactNode}>) {
