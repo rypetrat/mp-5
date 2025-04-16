@@ -6,10 +6,12 @@ import Header from "@/components/Header";
 
 const geist = Geist({ subsets: ["latin"], weight: ["400", "700"] });
 
+// styling for the body of the page
 const StyledBody = styled.body`
   background-color:rgb(168, 168, 168);
 `;
 
+// defines the structure of the root of the page to dynamically render in components
 export default function RootLayout({children}: Readonly<{children:React.ReactNode}>) {
   return (
     <html lang="en" className={geist.className}>
